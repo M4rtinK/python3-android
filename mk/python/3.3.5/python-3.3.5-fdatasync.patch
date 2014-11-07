@@ -1,0 +1,12 @@
+diff -ru Python-3.3.5/configure Python-3.3.5.new/configure
+--- Python-3.3.5/configure	2014-03-09 09:40:34.000000000 +0100
++++ Python-3.3.5.new/configure	2014-11-03 22:02:55.332624216 +0100
+@@ -10486,7 +10486,7 @@
+ int
+ main ()
+ {
+-void *x=fdatasync
++void *x=fdatasyncFAILSFAILSFAILS
+   ;
+   return 0;
+ }
