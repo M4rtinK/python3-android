@@ -1,0 +1,16 @@
+diff -ru Python-3.3.5/Lib/platform.py Python-3.3.5.new/Lib/platform.py
+--- Python-3.3.5/Lib/platform.py	2014-11-08 11:01:55.446043157 +0100
++++ Python-3.3.5.new/Lib/platform.py	2014-11-08 14:13:16.613786982 +0100
+@@ -1213,7 +1213,11 @@
+                 processor = 'VAX'
+     if not processor:
+         # Get processor information from the uname system command
+-        processor = _syscmd_uname('-p','')
++        try:
++            processor = _syscmd_uname('-p','')
++        except:
++            # No 'uname' on Android
++            processor = ''
+ 
+     #If any unknowns still exist, replace them with ''s, which are more portable
+     if system == 'unknown':

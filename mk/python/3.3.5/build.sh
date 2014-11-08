@@ -28,6 +28,7 @@ patch -p1  < "${FILESDIR}/${PACKAGE}-android-locale.patch" || exit 1
 patch -Ep1 < "${FILESDIR}/${PACKAGE}-android-libmpdec.patch" || exit 1
 patch -p1  < "${FILESDIR}/${PACKAGE}-android-misc.patch" || exit 1
 patch -p1  < "${FILESDIR}/${PACKAGE}-fdatasync.patch" || exit 1
+patch -p1  < "${FILESDIR}/${PACKAGE}-platform-uname-android.patch" || exit 1
 
 cp "${FILESDIR}/Setup" Modules/Setup || exit 1
 ./configure CROSS_COMPILE_TARGET=yes HOSTPYTHON="$(pwd)/hostpython" CONFIG_SITE=config.site --prefix="${PREFIX}" --host="${TARGET}" --build="${HOST}" --disable-ipv6 || exit 1
