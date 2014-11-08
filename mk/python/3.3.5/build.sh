@@ -19,6 +19,7 @@ cat > config.site <<-SITE
         ac_cv_func_futimens=no
         ac_cv_func_utimensat=no
         ac_cv_func_fdatasync=no
+        ac_cv_func_wcsftime=no
         ac_cv_func_pipe2=no
 SITE
 patch -p1  < "${FILESDIR}/${PACKAGE}-cross-compile.patch" || exit 1
