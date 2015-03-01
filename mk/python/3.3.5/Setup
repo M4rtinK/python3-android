@@ -370,6 +370,18 @@ zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz
 #
 pyexpat expat/xmlparse.c expat/xmlrole.c expat/xmltok.c pyexpat.c -I$(srcdir)/Modules/expat -DHAVE_EXPAT_CONFIG_H -DUSE_PYEXPAT_CAPI
 
+# Sqlite3 module, linked statically (adapted from setup.py's search for sqlite)
+# We must not have a "=" in the line containing _sqlite3, otherwise makesetup
+# will interpret it wrong, so instead push the "="-containing stuff into a make
+# variable and reference that make variable in the _sqlite3 line
+SQLITE_DEF_MOD='MODULE_NAME="sqlite3"'
+SQLITE_DEF_EXT=SQLITE_OMIT_LOAD_EXTENSION="1"
+_sqlite3 _sqlite/cache.c _sqlite/connection.c _sqlite/cursor.c _sqlite/microprotocols.c _sqlite/module.c \
+	_sqlite/prepare_protocol.c _sqlite/row.c _sqlite/statement.c _sqlite/util.c \
+	-I$(srcdir)/Modules/_sqlite -I$(SSL)/include \
+	-D$(SQLITE_DEF_MOD) -D$(SQLITE_DEF_EXT) \
+	-L$(SSL)/lib -lsqlite3
+
 # Hye-Shik Chang's CJKCodecs
 
 # multibytecodec is required for all the other CJK codec modules
