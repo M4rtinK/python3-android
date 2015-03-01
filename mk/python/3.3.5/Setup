@@ -194,7 +194,7 @@ select selectmodule.c	# select(2); not on ancient System V
 #mmap mmapmodule.c
 
 # CSV file helper
-#_csv _csv.c
+_csv _csv.c
 
 # Socket module helper for socket(2)
 _socket socketmodule.c
