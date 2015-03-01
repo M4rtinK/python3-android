@@ -1,2 +1,2 @@
-QMAKE_LIBS += -L/home/thp/src/python3-android/build/9d-14-arm-linux-androideabi-4.8/lib -lpython3.3m -ldl -lm -lc -lssl -lcrypto
+QMAKE_LIBS += -L/home/thp/src/python3-android/build/9d-14-arm-linux-androideabi-4.8/lib -lpython3.3m -ldl -lm -lc -lssl -lcrypto -lsqlite3
 QMAKE_CXXFLAGS += -I/home/thp/src/python3-android/build/9d-14-arm-linux-androideabi-4.8/include/python3.3m/
